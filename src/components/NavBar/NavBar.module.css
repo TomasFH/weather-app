@@ -1,0 +1,44 @@
+.header {
+    background: linear-gradient(90deg, #fa1660, #ff6e00);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+    padding: 10px 20px;
+}
+
+.headerContainer h1 {
+    color: #fff;
+}
+
+.headerContainer nav ul {
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.headerContainer nav ul li a {
+    font-weight: bold;
+    color: #fff;
+}
+
+.headerContainer nav ul li .line {
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #fff;
+    transition: .5s;
+}
+
+.headerContainer nav ul li:hover .line {
+    width: 100%;
+}
