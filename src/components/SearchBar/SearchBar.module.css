@@ -16,3 +16,8 @@
     outline: none;
     cursor: pointer;
 }
+
+.disabledBtn {
+    background-color: rgb(100, 100, 100);
+    cursor: not-allowed;
+}

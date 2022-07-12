@@ -1,9 +1,14 @@
 import { useState } from "react";
 import styles from "./SearchBar.module.css";
 import axios from 'axios';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { searchCity } from '../../features/weather/weatherSlice';
 
 const SearchBar = () => {
+
+    const globalState = useSelector(state => state.ciudades);
+    console.log("🚀 ~ file: SearchBar.jsx ~ line 9 ~ SearchBar ~ globalState", globalState);
+    const dispatch = useDispatch();
 
     const API = "https://api.openweathermap.org/data/2.5/weather"
     
@@ -23,10 +28,15 @@ const SearchBar = () => {
             let response;
             try {
                 setLoadingResults(true);
+                document.getElementById("submitBtn").classList.add(styles.disabledBtn);
+                document.getElementById("submitBtn").disabled = true;
                 response = await axios.get(`${API}?q=${input}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&lang=es&units=metric`);
                 console.log(response.data);
                 setInput('');
+                dispatch(searchCity(response.data));
                 setLoadingResults(false);
+                document.getElementById("submitBtn").classList.remove(styles.disabledBtn);
+                document.getElementById("submitBtn").disabled = false;
             } catch (error) {
                 alert("No se encontraron resultados. Por favor revisa la ciudad ingresada.");
             };
@@ -36,7 +46,7 @@ const SearchBar = () => {
     return(
         <div>
             <input type="text" value={input} onChange={onChangeHandler} className={styles.input} placeholder="City..."/>
-            <button onClick={onSubmitHandler} className={styles.submitBtn}>Search</button>
+            <button id="submitBtn" onClick={onSubmitHandler} className={styles.submitBtn}>Search</button>
         </div>
     );
 };
