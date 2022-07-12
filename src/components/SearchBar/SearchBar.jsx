@@ -7,16 +7,14 @@ import { searchCity } from '../../features/weather/weatherSlice';
 const SearchBar = () => {
 
     const globalState = useSelector(state => state.ciudades);
-    console.log("🚀 ~ file: SearchBar.jsx ~ line 9 ~ SearchBar ~ globalState", globalState);
     const dispatch = useDispatch();
 
-    const API = "https://api.openweathermap.org/data/2.5/weather"
+    const API = "https://api.openweathermap.org/data/2.5/weather";
     
     const [input, setInput] = useState('');
     const [loadingResults, setLoadingResults] = useState(false);
 
     const onChangeHandler = (e) => {
-        console.log(e.target.value);
         setInput(e.target.value);
     };
 
@@ -31,14 +29,16 @@ const SearchBar = () => {
                 document.getElementById("submitBtn").classList.add(styles.disabledBtn);
                 document.getElementById("submitBtn").disabled = true;
                 response = await axios.get(`${API}?q=${input}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&lang=es&units=metric`);
-                console.log(response.data);
                 setInput('');
                 dispatch(searchCity(response.data));
                 setLoadingResults(false);
                 document.getElementById("submitBtn").classList.remove(styles.disabledBtn);
                 document.getElementById("submitBtn").disabled = false;
             } catch (error) {
+                console.log("🚀 ~ file: SearchBar.jsx ~ line 40 ~ onSubmitHandler ~ error", error)
                 alert("No se encontraron resultados. Por favor revisa la ciudad ingresada.");
+                document.getElementById("submitBtn").classList.remove(styles.disabledBtn);
+                document.getElementById("submitBtn").disabled = false;
             };
         };
     };
@@ -52,3 +52,5 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+
+// hay que hacer que la información no se duplique (si ya hay una tarjeta con el id de la ciudad que se quiere agregar, no se agrega)

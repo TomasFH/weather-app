@@ -5,6 +5,12 @@ export const weatherSlice = createSlice({
     initialState: [],
     reducers: {
         searchCity: (state, action) => {
+            console.log(action.payload);
+            if(state.find(c => c.id === action.payload.id) !== undefined){
+                console.log("Ya existe esa ciudad dentro del arreglo y no se agregó.");
+                return [...state];
+            };
+            console.log("Agregando nueva ciudad a la lista.")
             return [...state, action.payload];
         },
         removeCity: (state, action) => {
@@ -17,6 +23,6 @@ export const weatherSlice = createSlice({
     }
 });
 
-export const { searchCity } = weatherSlice.actions;
+export const { searchCity, removeCity } = weatherSlice.actions;
 
 export default weatherSlice.reducer;
