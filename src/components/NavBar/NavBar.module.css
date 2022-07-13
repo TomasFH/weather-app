@@ -26,7 +26,7 @@
 }
 
 
-.headerContainer nav ul li a {
+.headerContainer nav ul li .link {
     font-weight: bold;
     color: #fff;
 }

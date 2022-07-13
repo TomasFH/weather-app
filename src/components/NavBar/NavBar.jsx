@@ -1,6 +1,7 @@
 import SearchBar from "../SearchBar/SearchBar";
 import styles from "./NavBar.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Switch, Route, Link } from 'react-router-dom'
 
 const NavBar = () => {
     
@@ -16,12 +17,16 @@ const NavBar = () => {
                     <nav id="navBar" className="">
                         <ul>
                             <li>
-                                <a href="#" className="selected">Home</a>
-                                <span className={styles.line}></span>
+                                <Link to="/" className={styles.link}>
+                                    Home 
+                                    <span className={styles.line}></span>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#">About Me</a>
-                                <span className={styles.line}></span>
+                                <Link to="/about" className={styles.link}>
+                                    About
+                                    <span className={styles.line}></span>
+                                </Link>
                             </li>
                         </ul>
                     </nav>
