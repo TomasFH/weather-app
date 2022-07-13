@@ -353,15 +353,21 @@ const Cards = () => {
                 {
                     cities.map(c => {
                         return <div className={styles.cards} key={c.id}>
-                            <h3>{c.name}</h3>
+                            <div className={styles.cityName}>
+                                <h3>{c.name}</h3>
+                            </div>
                             <div className={styles.tempContainer}>
                                 <h5>Min {Math.round(c.main.temp_min)}º</h5>
                                 <h5>Max {Math.round(c.main.temp_max)}º</h5>
                             </div>
-                            <button onClick={() => onClose(c.id)} className={styles.closeBtn}>X</button>
-                            {
-                               <span>{weatherIcons.find(w => w.id === c.weather[0].id)?.icon || c.weather[0].main}</span> 
-                            }
+                            <div className={styles.closeBtnContainer}>
+                                <button onClick={() => onClose(c.id)} className={styles.closeBtn}>X</button>
+                            </div>
+                            <div className={styles.iconContainer}>
+                                {
+                                    <span>{weatherIcons.find(w => w.id === c.weather[0].id)?.icon || c.weather[0].main}</span> 
+                                }
+                            </div>
                         </div>
                     })
                 }
