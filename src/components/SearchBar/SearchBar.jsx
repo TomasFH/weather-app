@@ -20,9 +20,7 @@ const SearchBar = () => {
 
     const onSubmitHandler = async () => {
         if(input === ''){
-            console.log("No se ha introducido ninguna ciudad.");
         } else {
-            console.log("Buscando info de " + input);
             let response;
             try {
                 setLoadingResults(true);
@@ -35,8 +33,7 @@ const SearchBar = () => {
                 document.getElementById("submitBtn").classList.remove(styles.disabledBtn);
                 document.getElementById("submitBtn").disabled = false;
             } catch (error) {
-                console.log("🚀 ~ file: SearchBar.jsx ~ line 40 ~ onSubmitHandler ~ error", error)
-                alert("No se encontraron resultados. Por favor revisa la ciudad ingresada.");
+                alert("No results found. Please, check the entered name.");
                 document.getElementById("submitBtn").classList.remove(styles.disabledBtn);
                 document.getElementById("submitBtn").disabled = false;
             };

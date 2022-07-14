@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeCity } from '../../features/weather/weatherSlice';
+import NoCityYet from '../NoCityYet/NoCityYet';
 import styles from './Cards.module.css';
 
 const Cards = () => {
@@ -346,6 +347,14 @@ const Cards = () => {
         },
 
     ]
+
+    if(!cities.length) {
+        return(
+            <section id={styles.nothingHere}>
+                <NoCityYet />
+            </section>
+        )
+    }
 
     return (
         <section id={styles.cards}>
