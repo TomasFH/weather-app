@@ -2,12 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faB, faCheckSquare, faCloud, faCloudRain, faCloudShowersHeavy, faCloudSun, faCoffee, faSnowflake, faSun, faThunderstorm, faTornado } from '@fortawesome/free-solid-svg-icons';
+import { faB, faBars, faCheckSquare, faCloud, faCloudRain, faCloudShowersHeavy, faCloudSun, faCoffee, faMagnifyingGlass, faSnowflake, faSun, faThunderstorm, faTornado } from '@fortawesome/free-solid-svg-icons';
 import Cards from './components/Cards/Cards';
 import { Route, Routes } from 'react-router-dom'
 import About from './components/About/About';
 
-library.add(faB, faCheckSquare, faCoffee, faCloud, faCloudSun, faSun, faCloudShowersHeavy, faThunderstorm, faCloudRain, faSnowflake, faTornado);
+library.add(faB, faCheckSquare, faCoffee, faCloud, faCloudSun, faSun, faCloudShowersHeavy, faThunderstorm, faCloudRain, faSnowflake, faTornado, faBars, faMagnifyingGlass);
 
 function App() {
   return (

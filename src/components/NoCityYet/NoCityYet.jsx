@@ -4,7 +4,7 @@ const NoCityYet = () => {
     
     return(
         <div className={styles.anythingMsgContainer}>
-            <h3>Search for any city or country to see it details.</h3>
+            <h3>Search for any city or country to see its details.</h3>
         </div>
     )
 }

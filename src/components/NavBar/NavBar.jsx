@@ -8,13 +8,18 @@ const NavBar = () => {
     // const cloud = <FontAwesomeIcon icon={"cloud"}/>;
     const cloud = <FontAwesomeIcon icon="cloud" />;
     const cloudSun = <FontAwesomeIcon icon="cloud-sun" />;
+    const menuBars = <FontAwesomeIcon icon="bars" />;
 
     return(
-        <section id="home">
+        <section id={styles.home}>
             <header className={styles.header}>
                 <div className={styles.headerContainer}>
+                    {/* Menu Bars Icon */}
+                    <div id={styles.menuIcon}>
+                        <i>{menuBars}</i>
+                    </div>
                     <h1>Weather App {cloudSun}</h1>
-                    <nav id="navBar" className="">
+                    <nav id={styles.navBar} className="">
                         <ul>
                             <li>
                                 <Link to="/" className={styles.link}>

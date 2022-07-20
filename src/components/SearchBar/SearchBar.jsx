@@ -3,8 +3,12 @@ import styles from "./SearchBar.module.css";
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchCity } from '../../features/weather/weatherSlice';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SearchBar = () => {
+
+    // Icono de lupa
+    const magnifyingGlassIcon = <FontAwesomeIcon icon="magnifying-glass" />
 
     const globalState = useSelector(state => state.ciudades);
     const dispatch = useDispatch();
@@ -41,13 +45,12 @@ const SearchBar = () => {
     };
 
     return(
-        <div>
+        <div className={styles.searchBarContainer}>
             <input type="text" value={input} onChange={onChangeHandler} className={styles.input} placeholder="City..."/>
+            <button id="submitBtn" onClick={onSubmitHandler} className={styles.submitBtnShort}>{magnifyingGlassIcon}</button>
             <button id="submitBtn" onClick={onSubmitHandler} className={styles.submitBtn}>Search</button>
         </div>
     );
 };
 
 export default SearchBar;
-
-// hay que hacer que la información no se duplique (si ya hay una tarjeta con el id de la ciudad que se quiere agregar, no se agrega)

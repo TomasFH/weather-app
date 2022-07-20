@@ -10,7 +10,7 @@ const About = () => {
                 <br />
                 <h2>About:</h2>
                 <br />
-                <p>App created using <b>React</b>, <b>Redux (Toolkit)</b>, <b>pure CSS</b> and icons from <b>fontawesome-react (librery)    </b></p>
+                <p>App created using <b>React</b>, <b>Redux (Toolkit)</b>, <b>pure CSS</b> and icons from <b>fontawesome-react (librery).    </b></p>
                 <br />
                 <br />
                 <h2>Acerca de:</h2>
