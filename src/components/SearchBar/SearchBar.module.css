@@ -7,8 +7,13 @@
     outline-color:rgb(140, 140, 140);
 }
 
+.errorInput {
+    border: 2px solid rgb(255, 0, 0);
+    outline-width: 2px;
+    outline-color:rgb(255, 0, 0);
+}
+
 .submitBtn {
-    /* display: none; */
     border: 1px solid rgb(215, 215, 215);
     border-radius: 5px;
     padding: 10px 20px;
@@ -44,7 +49,13 @@
     transition: .4s;
 }
 
-@media screen and (max-width:1100px) {
+.searchBarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:1100px) and (min-width:651px) {
     .searchBarContainer {
         max-height: 35px;
         text-align: center;
@@ -54,5 +65,29 @@
     }
     .submitBtnShort {
         display: inline;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .searchBarContainer{
+        position: relative;
+        left: 50px;
+    }
+    .submitBtn {
+        display: none;
+    }
+    .input {
+        outline-color: rgb(255 255 255);
+        padding-right: 50px;
+        width: 80%;
+    }
+    .submitBtnShort {
+        display: inline-block;
+        position: relative;
+        right: 60px;
+        width: 50px;
+        border-radius: 120px;
+        background: white;
+        border: 1px solid white;
     }
 }

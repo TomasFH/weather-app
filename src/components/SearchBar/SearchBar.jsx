@@ -34,10 +34,12 @@ const SearchBar = () => {
                 setInput('');
                 dispatch(searchCity(response.data));
                 setLoadingResults(false);
+                document.getElementById("searchInput").classList.remove(styles.errorInput);
                 document.getElementById("submitBtn").classList.remove(styles.disabledBtn);
                 document.getElementById("submitBtn").disabled = false;
             } catch (error) {
                 alert("No results found. Please, check the entered name.");
+                document.getElementById("searchInput").classList.add(styles.errorInput);
                 document.getElementById("submitBtn").classList.remove(styles.disabledBtn);
                 document.getElementById("submitBtn").disabled = false;
             };
@@ -46,7 +48,7 @@ const SearchBar = () => {
 
     return(
         <div className={styles.searchBarContainer}>
-            <input type="text" value={input} onChange={onChangeHandler} className={styles.input} placeholder="City..."/>
+            <input type="text" id="searchInput" value={input} onChange={onChangeHandler} className={styles.input} placeholder="City..."/>
             <button id="submitBtn" onClick={onSubmitHandler} className={styles.submitBtnShort}>{magnifyingGlassIcon}</button>
             <button id="submitBtn" onClick={onSubmitHandler} className={styles.submitBtn}>Search</button>
         </div>

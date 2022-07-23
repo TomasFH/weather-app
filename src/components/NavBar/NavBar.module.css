@@ -58,3 +58,11 @@
         font-size: 25px;
     }
 }
+
+@media screen and (max-width:650px) {
+    .headerContainer h1 {
+        position: relative;
+        left: 25px;
+        text-align: center;
+    }
+}
