@@ -66,6 +66,9 @@
     .submitBtnShort {
         display: inline;
     }
+    .submitBtn:hover{
+        background-color: #fff;
+    }
 }
 
 @media screen and (max-width:650px) {

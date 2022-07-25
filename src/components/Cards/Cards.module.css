@@ -37,7 +37,7 @@
     text-align: center;
     margin-top: 70px;
     position: absolute;
-    max-width: 340px;
+    width: 200px;
 }
 
 .cards .tempContainer {

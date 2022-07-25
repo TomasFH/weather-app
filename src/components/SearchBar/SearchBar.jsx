@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchCity } from '../../features/weather/weatherSlice';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Navigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const SearchBar = () => {
 
@@ -24,6 +26,7 @@ const SearchBar = () => {
 
     const onSubmitHandler = async () => {
         if(input === ''){
+            console.log("No se ha introducido ningún valor")
         } else {
             let response;
             try {
@@ -49,8 +52,10 @@ const SearchBar = () => {
     return(
         <div className={styles.searchBarContainer}>
             <input type="text" id="searchInput" value={input} onChange={onChangeHandler} className={styles.input} placeholder="City..."/>
+            <Link to="/">
             <button id="submitBtn" onClick={onSubmitHandler} className={styles.submitBtnShort}>{magnifyingGlassIcon}</button>
             <button id="submitBtn" onClick={onSubmitHandler} className={styles.submitBtn}>Search</button>
+            </Link>
         </div>
     );
 };
